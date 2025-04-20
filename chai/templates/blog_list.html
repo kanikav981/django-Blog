@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+chai page
+{% endblock  %}
+
+{% block content %}
+<h1>BlogHere!</h1>
+<a class="btn btn-primary mb-4" href="{% url 'blog_create' %}">Write a Blog:</a>
+<div class="container row gap-3">
+    {% for blog in blogs %}
+    <div class="card" style="width: 18rem;">
+        <img src="{{blog.graphics.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{blog.title}}</h5>
+          <p class="card-text">{{blog.content}}</p>
+          {% if blog.user == user %}
+          <a href="{% url 'blog_edit' blog.id %}" class="btn btn-primary">Edit</a>
+          <a href="{% url 'blog_del' blog.id %}" class="btn btn-danger">Delete</a>
+          {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<style>
+    body{
+        background-color:#000;
+        color:#fff;
+    }
+</style>
+{% endblock content %}

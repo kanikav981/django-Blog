@@ -1,0 +1,10 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: black;
+    
+}
+h1{
+    text-align: center;
+    font-size: 2em;
+    margin: top 2px;
+}

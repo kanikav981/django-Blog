@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    VoxBlog
+{% endblock  %}
+
+{% block content %}
+<h1 >BlogHere!</h1>
+<h2>
+    {% if form.instance.pk %}
+    Edit Blog
+    {% else %}
+     Create New Blog!
+    {% endif %}
+    <form method="post" enctype="multipart/form-data" class="form">
+        {% csrf_token %}
+        {{form.as_p}}
+    <button class="btn btn-warning" type="submit">Submit</button>    
+    </form>
+    <a href="{% url 'blog_list' %}">Back to Blog</a>
+</h2>
+<style>
+    body{
+        background-color:#000;
+        color:#fff;
+    }
+</style>
+
+{% endblock content %}
